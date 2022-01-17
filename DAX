@@ -1,0 +1,6 @@
+r = requests.get('https://en.wikipedia.org/wiki/DAX')
+soup = BeautifulSoup(r.text,'html.parser')
+results = soup.find('table', attrs ={'class':'wikitable sortable', 'id':'constituents'})
+tickers = results.find_all('a', attrs = {'rel': 'nofollow'})
+for i in range(0,len(tickers)):
+    tick.append(tickers[i].text)
