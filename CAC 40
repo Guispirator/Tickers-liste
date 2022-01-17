@@ -1,0 +1,8 @@
+r = requests.get('https://en.wikipedia.org/wiki/CAC_40')
+soup = BeautifulSoup(r.text,'html.parser')
+results = soup.find('table', attrs ={'class':'wikitable sortable', 'id':'constituents'})
+tickers = results.find_all('td')
+for i in range(3,len(tickers),4):
+    tick.append(tickers[i].text)
+for i in range(0, len(tick)):
+    tick[i] = tick[i].replace('\n','')
