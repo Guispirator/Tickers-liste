@@ -1,0 +1,6 @@
+r = requests.get('https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components')
+soup = BeautifulSoup(r.text,'html.parser')
+results = soup.find('table', attrs ={'class':'wikitable sortable'})
+tickers = results.find_all('a', attrs = {'rel': 'nofollow'})
+for i in range (0,len(tickers)):
+    tick.append(tickers[i].text)
